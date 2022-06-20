@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MatchesSimulater</string>
+    <string name="cd_simulate">Botão de simulação de partidas</string>
+    <string name="cd_home_team">Imagem do time mandante</string>
+    <string name="txt_versus">X</string>
+    <string name="cd_awayTeam">Imagem time Adversario</string>
+    <string name="error_api">Unexpected Error</string>
+</resources>
