@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MatchesSimulater">
         <activity
-            android:name=".ui.DetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
@@ -23,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.DetailActivity"
+            android:exported="true"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/Theme.MatchesSimulater.NoActionBar"/>
     </application>
 
 </manifest>

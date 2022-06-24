@@ -1,7 +1,10 @@
 package com.beca.matchessimulater.domain
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Match(
     //Traduzir o que está na API
     @SerializedName("descricao")
@@ -13,4 +16,4 @@ data class Match(
     @SerializedName("visitante")
     val awayTeam: Team
 
-)
+):Parcelable
