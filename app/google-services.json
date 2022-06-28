@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "160616609709",
+    "project_id": "simulator-diosportheca",
+    "storage_bucket": "simulator-diosportheca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160616609709:android:5db5fa421d3c6826c55324",
+        "android_client_info": {
+          "package_name": "com.beca.matchessimulater"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160616609709-vla6a330efh34fvi07fp13os3l35k87d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA80kLVxmBq5YlB8kt6s4fqHGV-9VAm1jM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160616609709-vla6a330efh34fvi07fp13os3l35k87d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

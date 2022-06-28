@@ -1,13 +1,13 @@
 package com.beca.matchessimulater.ui;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.beca.matchessimulater.R;
 import com.beca.matchessimulater.data.MatchesApi;
@@ -16,6 +16,7 @@ import com.beca.matchessimulater.domain.Match;
 import com.beca.matchessimulater.ui.adapter.MatchesAdapter;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private MatchesApi matchesApi;
-    private MatchesAdapter matchesAdapter;
+    private MatchesAdapter matchesAdapter = new MatchesAdapter(Collections.emptyList()); //o adapter inicializado com uma lista vazia
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         //configurações do recicle view, setando as propriedades
         binding.rvMatches.setHasFixedSize(true); //tamanho fixo
         binding.rvMatches.setLayoutManager(new LinearLayoutManager(this)); //definição do layout
+        binding.rvMatches.setAdapter(matchesAdapter);
         findMatchesFromApi();
     }
 
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         binding.srlMatches.setRefreshing(true);
         matchesApi.getMaches().enqueue(new Callback<List<Match>>() {
             @Override
-            public void onResponse(Call<List<Match>> call, Response<List<Match>> response) {
+            public void onResponse(@NonNull Call<List<Match>> call, @NonNull Response<List<Match>> response) {
                 if(response.isSuccessful()){
                     //A lista de partidas vindo do corpo do response
                     List<Match>matches = response.body();
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Match>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<Match>> call, @NonNull Throwable t) {
                 showErrorMessage();
                 //Refresh caso de error é false
                 binding.srlMatches.setRefreshing(false);
